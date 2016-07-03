@@ -1,4 +1,8 @@
+
+
 <h1 align="center">googler</h1>
+
+> NOTE: This branch fork from 'https://github.com/jarun/googler', we use the `article extractor ( [newspaper](https://github.com/codelucas/newspaper) ,you must install it )` to extract and print the extractor article of the index. In omniprompt keys, we add the `c` to show current page search results and `v index` to `extract article from the result page  of the index`
 
 <p align="center">
 <a href="https://github.com/jarun/googler/releases/latest"><img src="https://img.shields.io/github/release/jarun/googler.svg" alt="Latest release" /></a>
@@ -11,6 +15,8 @@
 <p align="center">
 <a href="https://asciinema.org/a/46340"><img src="https://asciinema.org/a/46340.png" alt="Asciicast" width="734"/></a>
 </p>
+
+
 
 `googler` is a power tool to Google (Web & News) and Google Site Search from the command-line. It shows the title, URL and abstract for each result, which can be directly opened in a browser from the terminal. Results are fetched in pages (with page navigation). Supports sequential searches in a single `googler` instance.
 
