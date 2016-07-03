@@ -36,6 +36,7 @@ import signal
 import sys
 import textwrap
 import urllib.parse
+from newspaper import Article
 
 # Python optional dependency compatibility layer
 try:
@@ -95,7 +96,6 @@ def open_url(url):
         os.close(fd)
         os.dup2(_stderr, 2)
         os.dup2(_stdout, 1)
-
 
 def printerr(msg):
     """Print message, verbatim, to stderr.
@@ -1728,6 +1728,13 @@ class GooglerCmd(object):
         self._google_url.set_queries(filter=0)
         self.fetch_and_display()
 
+    def show_page_article(self,url):
+        article = Article(url)
+        article.download()
+        article.parse()
+        print(' '+self.colors.title+'Title >>   ' +article.title+ self.colors.reset)
+        print("content >>  \n"+article.text)
+
     def cmdloop(self):
         """Run REPL."""
         if self.keywords:
@@ -1749,6 +1756,10 @@ class GooglerCmd(object):
                     self.do_first('')
                 elif cmd.startswith('g '):
                     self.do_google(cmd[2:])
+                elif cmd.startswith('v '):
+                    self.show_page_article(self._urltable[cmd[2]])
+                elif cmd == 'c':
+                    self.fetch_and_display('')
                 elif cmd == 'n':
                     self.do_next('')
                 elif cmd == 'o':
@@ -1780,8 +1791,9 @@ class GooglerArgumentParser(argparse.ArgumentParser):
         file = sys.stderr if file is None else file
         file.write(textwrap.dedent("""
         omniprompt keys:
-          n, p                  fetch the next or previous set of search results
+          n, p , c              fetch the next , previous or current set of search results
           index                 open the result corresponding to index in browser
+          v index               extract article from the result page  of the index
           f                     jump to the first page
           o                     open the current search in browser
           g keywords            initiate a new Google search for 'keywords' with original options
