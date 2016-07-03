@@ -2,7 +2,7 @@
 
 <h1 align="center">googler</h1>
 
-> NOTE: This branch fork from 'https://github.com/jarun/googler', we use the `article extractor ( [newspaper](https://github.com/codelucas/newspaper) ,you must install it )` to extract and print the extractor article of the index. In omniprompt keys, we add the `c` to show current page search results and `v index` to `extract article from the result page  of the index`
+> NOTE: This branch fork from 'https://github.com/jarun/googler', we use the `article extractor ( [newspaper](https://github.com/codelucas/newspaper), you must install it )` to extract and print the extractor article of the index. In omniprompt keys, we add the `c` to show current page search results and `v index` to `extract article from the result page  of the index`
 
 <p align="center">
 <a href="https://github.com/jarun/googler/releases/latest"><img src="https://img.shields.io/github/release/jarun/googler.svg" alt="Latest release" /></a>
